@@ -10,11 +10,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('posts', PostController::class)->except([
-    'create', 'show', 'edit'
+    'create', 'edit'
 ]);
 
 Route::apiResource('products', ProductController::class)->except([
-    'create', 'show', 'edit'
+    'create', 'edit'
 ]);
 
 Route::post('/register', [AuthController::class, 'register']);

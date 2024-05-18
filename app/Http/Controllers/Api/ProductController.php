@@ -15,6 +15,13 @@ class ProductController extends Controller
         return ProductResource::collection($products);
     }
 
+    public function show(Product $product)
+    {
+        
+        $product = Product::findOrFail($product); 
+        return new ProductResource($product); 
+    }
+
     public function store(StoreProductRequest $request)
     {
         
