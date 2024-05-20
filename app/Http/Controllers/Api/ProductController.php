@@ -15,10 +15,10 @@ class ProductController extends Controller
         return ProductResource::collection($products);
     }
 
-    public function show(Product $product)
+    public function show(string $id)
     {
         
-        $product = Product::findOrFail($product); 
+        $product = Product::findOrFail($id); 
         return new ProductResource($product); 
     }
 

@@ -13,9 +13,19 @@ Route::apiResource('posts', PostController::class)->except([
     'create', 'edit'
 ]);
 
+Route::get('/post/{id}', [PostController::class, 'show']);
+
 Route::apiResource('products', ProductController::class)->except([
     'create', 'edit'
 ]);
+
+
+
+Route::apiResource('products', ProductController::class)->only([
+    'index', 'show'
+]);
+
+Route::get('/product/{id}', [ProductController::class, 'show']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

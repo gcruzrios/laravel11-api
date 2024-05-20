@@ -18,12 +18,14 @@ class PostController extends Controller
         $posts = Post::all();
         return PostResource::collection($posts);
     }
-    public function show(Post $post)
+    public function show(string $id)
     {
         
-        $product = Post::findOrFail($post); 
+        $post = Post::findOrFail($id); 
         return new PostResource($post); 
     }
+
+    
     public function store(StorePostRequest $request)
     {
         $post = Post::create($request->validated());
